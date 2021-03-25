@@ -1,0 +1,4 @@
+clear all;close all;
+
+run=SVM();
+run.Output_df(''data/Iris.csv')

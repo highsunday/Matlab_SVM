@@ -17,7 +17,12 @@ classdef SVM < handle
             end
             
             function Plot_2d(obj)
-                scatter(obj.X.SepalLengthCm,obj.X.SepalWidthCm,'b','.')
+                DataFrame=obj.dataframe;
+                class_1=DataFrame(DataFrame.Var1,:);
+                class_2=DataFrame(~DataFrame.Var1,:);
+                scatter(class_1.SepalLengthCm,class_1.SepalWidthCm,'b','.')
+                hold on;
+                scatter(class_2.SepalLengthCm,class_2.SepalWidthCm,'r','.')
                 xlabel('SepalLengthCm')
                 ylabel('SepalWidthCm')
             end

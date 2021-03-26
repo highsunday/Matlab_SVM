@@ -3,6 +3,7 @@ classdef SVM < handle
     properties
         target
         dataframe
+        weight=[-1 9] %[w1 w2 b0]
     end
      methods
             function obj = SVM(target)   %建構函式，函式類名一致，完成類中變數的初始化
@@ -23,6 +24,8 @@ classdef SVM < handle
                 scatter(class_1.SepalLengthCm,class_1.SepalWidthCm,'b','.')
                 hold on;
                 scatter(class_2.SepalLengthCm,class_2.SepalWidthCm,'r','.')
+                x=2:10;
+                plot(x, obj.weight(1)*x+obj.weight(2));
                 xlabel('SepalLengthCm')
                 ylabel('SepalWidthCm')
             end

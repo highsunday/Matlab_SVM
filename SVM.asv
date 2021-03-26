@@ -11,9 +11,12 @@ classdef SVM < handle
             
             function Read_df(obj,path)
                 DataFrame = readtable (path)	;	% 將 data.csv 的內容讀到矩陣 A	
+                disp(DataFrame)
                 X=DataFrame(:,1:end-1);
-                y=array2table((DataFrame.Species==obj.target));% 將不是target的歸為0;是的為1
-                obj.dataframe=[X y];
+                y=array2table((DataFrame.Species==obj.target));
+                obj.D
+                %obj.X=DataFrame(:,1:end-1);
+                %obj.y=array2table((DataFrame.Species==obj.target));
             end
             
             function Plot_2d(obj)
